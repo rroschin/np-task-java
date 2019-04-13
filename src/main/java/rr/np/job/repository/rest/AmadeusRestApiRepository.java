@@ -6,6 +6,7 @@ import com.amadeus.resources.HotelOffer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class AmadeusRestApiRepository {
     this.amadeus = amadeus;
   }
 
-  public List<HotelOffer> searchHotels(Map<String, String> searchCriteria, String requestEntry) throws Exception {
+  public List<HotelOffer> searchHotels(@NotNull Map<String, String> searchCriteria, String requestEntry) throws Exception {
 
     var params = Params.with("cityCode", searchCriteria.get("cityCode"))
                        .and("checkInDate", searchCriteria.get("checkInDate"))

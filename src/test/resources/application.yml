@@ -1,0 +1,15 @@
+spring:
+  profiles.active: unit-test
+
+--- #development profile = dev
+
+spring:
+  profiles: unit-test
+
+logging:
+  file: logs-test/np-task-java.log
+
+amadeus:
+  api:
+    key: test
+    secret: test

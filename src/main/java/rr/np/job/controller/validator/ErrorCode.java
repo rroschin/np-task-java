@@ -6,7 +6,7 @@ public enum ErrorCode {
   ERR_003("ERR_003", "Check-In Date wrong format."),
   ERR_004("ERR_004", "Check-Out Date wrong format."),
   ERR_005("ERR_005", "Check-In Date cannot be in the past."),
-  ERR_006("ERR_006", "Check-Out Date must be greater than Check-In Date."),
+  ERR_006("ERR_006", "Check-Out Date must be after Check-In Date."),
   ERR_101("ERR_101", "Amadeus API Error.");
 
   private String code;

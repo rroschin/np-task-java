@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.annotation.PostConstruct;
+import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class HotelSearchService {
     this.amadeusRestApiRepository = amadeusRestApiRepository;
   }
 
-  public DeferredResult<ResponseEntity<?>> searchHotels(Map<String, String> searchCriteria, String requestEntry) {
+  public DeferredResult<ResponseEntity<?>> searchHotels(@NotNull Map<String, String> searchCriteria, String requestEntry) {
     var callback = new DeferredResult<ResponseEntity<?>>();
 
     this.restApiBackgroundService.submit(() -> {

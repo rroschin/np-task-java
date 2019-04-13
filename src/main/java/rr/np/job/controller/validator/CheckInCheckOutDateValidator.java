@@ -28,7 +28,7 @@ public class CheckInCheckOutDateValidator {
                                .toInstant()
                                .atZone(ZoneId.systemDefault())
                                .toLocalDate();
-    } catch (ParseException e) {
+    } catch (Exception e) {
       var response = new ResponseEntity<>(from(ErrorCode.ERR_003), HttpStatus.BAD_REQUEST);
       log.debug("{} Validation for CheckInDate failed. Format of CheckInDate is wrong.", requestEntry);
       return response;
@@ -40,7 +40,7 @@ public class CheckInCheckOutDateValidator {
                                 .toInstant()
                                 .atZone(ZoneId.systemDefault())
                                 .toLocalDate();
-    } catch (ParseException e) {
+    } catch (Exception e) {
       var response = new ResponseEntity<>(from(ErrorCode.ERR_004), HttpStatus.BAD_REQUEST);
       log.debug("{} Validation for CheckInDate failed. Format of CheckOutDate is wrong.", requestEntry);
       return response;
@@ -53,7 +53,7 @@ public class CheckInCheckOutDateValidator {
       return response;
     }
 
-    if (checkOutDateParsed.isBefore(checkInDateParsed)) {
+    if (checkOutDateParsed.equals(checkInDateParsed) || checkOutDateParsed.isBefore(checkInDateParsed)) {
       var response = new ResponseEntity<>(from(ErrorCode.ERR_006), HttpStatus.BAD_REQUEST);
       log.debug("{} Validation for CheckInDate failed. CheckOutDate is before. CheckinDate", requestEntry);
       return response;

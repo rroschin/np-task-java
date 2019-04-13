@@ -1,9 +1,11 @@
 package rr.np.job.controller.validator;
 
 import java.util.Map;
+import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import rr.np.job.controller.response.ErrorResponse;
 
 @Component
 public class HotelSearchValidator {
@@ -17,7 +19,7 @@ public class HotelSearchValidator {
     this.checkInCheckOutDateValidator = checkInCheckOutDateValidator;
   }
 
-  public ResponseEntity<?> validateSeachHotelsRequest(Map<String, String> request, String requestEntry) {
+  public ResponseEntity<ErrorResponse> validateSeachHotelsRequest(@NotNull Map<String, String> request, String requestEntry) {
 
     var step1 = this.cityCodeValidator.validateCityCode(request.get("cityCode"), requestEntry);
     if (step1 != null) {

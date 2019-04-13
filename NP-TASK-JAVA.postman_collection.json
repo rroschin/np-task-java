@@ -38,13 +38,15 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://localhost:5000/hotels?cityCode=PAR&checkInDate=2019-04-14&checkOutDate=2019-04-15",
+					"raw": "https://localhost:5000/api/v1/hotels?cityCode=PAR&checkInDate=2019-04-14&checkOutDate=2019-04-13",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
+						"api",
+						"v1",
 						"hotels"
 					],
 					"query": [
@@ -58,7 +60,7 @@
 						},
 						{
 							"key": "checkOutDate",
-							"value": "2019-04-15"
+							"value": "2019-04-13"
 						}
 					]
 				}

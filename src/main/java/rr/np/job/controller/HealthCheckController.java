@@ -15,4 +15,5 @@ public class HealthCheckController {
 
     return HEALTH_CHECK_RESPONSE;
   }
+
 }

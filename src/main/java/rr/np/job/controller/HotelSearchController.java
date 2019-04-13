@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
@@ -15,6 +16,7 @@ import rr.np.job.controller.validator.HotelSearchValidator;
 import rr.np.job.service.HotelSearchService;
 
 @RestController
+@RequestMapping("/api/v1/hotels")
 public class HotelSearchController {
   private static final Logger log = LoggerFactory.getLogger(HotelSearchController.class);
 
@@ -28,7 +30,7 @@ public class HotelSearchController {
     this.hotelSearchService = hotelSearchService;
   }
 
-  @GetMapping(value = "/hotels", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
   public DeferredResult<ResponseEntity<?>>
   searchHotels(@RequestParam("cityCode") String cityCode,
                @RequestParam("checkInDate") String checkInDate,
