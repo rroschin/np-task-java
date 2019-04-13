@@ -1,0 +1,24 @@
+spring:
+  profiles.active: dev
+
+--- #development profile = dev
+
+spring:
+  profiles: dev
+
+server:
+  port: 5000
+  ssl:
+    key-store: classpath:ssl/local-keystore.p12
+    key-store-password: np-task-java
+    keyStoreType: PKCS12
+    keyAlias: np-task-java
+
+logging:
+  file: logs/np-task-java.log
+
+amadeus:
+  api:
+    key: IGsWuHqGgYrGY7TlozTyOfYSBJes8tue
+    secret: GnQoNix2KV5P6VdS
+
